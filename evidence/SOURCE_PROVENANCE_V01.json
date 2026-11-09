@@ -1,0 +1,101 @@
+{
+  "schema": "aios.underdog.github_source_candidate.v1",
+  "timestamp_utc": "2026-11-09T14:50:00.873504+00:00",
+  "source_workspace": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB",
+  "curated_files": [
+    {
+      "repo_path": "include/AIOS_UNDERDOG_FENCED_TEXTURE_BUDGET_V02.h",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\AIOS_UNDERDOG_FENCED_TEXTURE_BUDGET_V02.h",
+      "sha256": "a5ff7006273334cb106c36472afe5c4b67f24fb151443f77160391aac910e54a",
+      "bytes": 3488
+    },
+    {
+      "repo_path": "include/AIOS_UNDERDOG_TEXTURE_FORMAT_POLICY_V01.h",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\AIOS_UNDERDOG_TEXTURE_FORMAT_POLICY_V01.h",
+      "sha256": "78c4b1b17ee1f9e030a2ea9484b08d55ccc2233eea94949e88f05c397c7ea4e1",
+      "bytes": 2484
+    },
+    {
+      "repo_path": "include/AIOS_D3D12_COMPAT_POLICY_V01.h",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\AIOS_D3D12_COMPAT_POLICY_V01.h",
+      "sha256": "9c1d480ff1a441b00c11dc46b822de27f233f63c9a6778faf7778dee28538212",
+      "bytes": 3940
+    },
+    {
+      "repo_path": "examples/mesh_bvh/obj_bvh_v03.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_obj_bvh_v03.cpp",
+      "sha256": "5c756e686971892c9a80de8260a5245a7a54854199bb41db914fed8fe08a9d7e",
+      "bytes": 13791
+    },
+    {
+      "repo_path": "examples/compute_ray/mesh_bvh_v01.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_mesh_bvh_v01.cpp",
+      "sha256": "c94dc39be2526671c7ac02d30e6e326243714007e326572ce7903cba56b234b7",
+      "bytes": 12821
+    },
+    {
+      "repo_path": "examples/texture_stream/texture_stream_v02.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_texture_stream_v02.cpp",
+      "sha256": "ee2611ae0c8a7c263b6ca7267d2110ccb04e7021acdbbeeb0a755a853fa2efc1",
+      "bytes": 13635
+    },
+    {
+      "repo_path": "examples/texture_stream/bc_mip_v01.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_bc_mip_stream_v01.cpp",
+      "sha256": "def7eb812b1dc9814d35bbad8dce75ed091677df42c990e7d3a86f7191546217",
+      "bytes": 8480
+    },
+    {
+      "repo_path": "examples/texture_stream/bcn_sample_v02.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_bcn_shader_sample_v02.cpp",
+      "sha256": "cc2955ed2d07e2202d90fdb005d3fa3061eb9ba448e18c40e899816e179aa123",
+      "bytes": 9382
+    },
+    {
+      "repo_path": "examples/present/independent_present_v01.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_independent_present_v01.cpp",
+      "sha256": "cd44836fa43bd5aaa9f2f4d1195248a4d0c39083ac8c9c72aad81aa37fda1329",
+      "bytes": 9437
+    },
+    {
+      "repo_path": "examples/benchmark/obj_multiframe_v02.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_obj_multiframe_v02.cpp",
+      "sha256": "7a3f81c586b90d32692dc0e82fe42bf54562cf192acee04ff881a3e2df81f4d9",
+      "bytes": 17855
+    },
+    {
+      "repo_path": "examples/benchmark/alu_stream_v01.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_underdog_alu_stream_v01.cpp",
+      "sha256": "f0a4850135ef875fa057eebfd83c6ad72870544c6c973bde5a24a2c14fe3c082",
+      "bytes": 11521
+    },
+    {
+      "repo_path": "examples/graphics_pso/pso_texture_mix_v01.cpp",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\native_d3d12_pso_texture_mix_v01.cpp",
+      "sha256": "dbf0f0298032ba4e68f04cc9a74d2f63f6275ba7a96b56d8d636c7d319b68e9e",
+      "bytes": 12092
+    },
+    {
+      "repo_path": "fixtures/cube_12tri.obj",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\fixtures\\UNDERDOG_CUBE_12TRI_V01.obj",
+      "sha256": "fc6efc5b7972a65af6e46f54e5ba8f7ca4bbcc0b5d51bfadadb61dba86522f6d",
+      "bytes": 283
+    },
+    {
+      "repo_path": "fixtures/grid_800tri.obj",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\fixtures\\UNDERDOG_GRID_800TRI_V01.obj",
+      "sha256": "3a134122f0ffb0fd8a5c04f9400b263a43e1ab4d49742bc2d226f054beef98ab",
+      "bytes": 25187
+    },
+    {
+      "repo_path": "fixtures/grid_3200tri.obj",
+      "original_path": "C:\\AIOS\\04_WORKSPACES\\PC_GAME_RE_LAB_01\\GAMES\\FORTNITE_UEFN\\09_GRAPHICS_COMPAT_LAB\\fixtures\\UNDERDOG_GRID_3200TRI_V01.obj",
+      "sha256": "386cf03b3921a310d9705b1a5b1c8d292460e890ecf0a8d00edf28ebe375eb7a",
+      "bytes": 103502
+    }
+  ],
+  "license_state": "NO_LICENSE_CHOSEN",
+  "remote_created": false,
+  "moved_source_files": 0,
+  "copy_scope": "small curated text source and fixtures only"
+}
