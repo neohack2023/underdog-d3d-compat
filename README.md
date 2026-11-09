@@ -100,3 +100,6 @@ The [V07 Arena integration and WARP comparison](docs/ARENA_TYPED_TEXTURE_V07.md)
 ## Typed UAV root binding regression
 
 The [V05 diagnostic](docs/TYPED_UAV_BINDING_V05.md) demonstrates the typed-texture root descriptor mismatch behind the minimal historical Arena PSO error on Intel HD 520. UnderdogRuntime provides a safe UAV binding-selection policy and hardware-free tests. This is not a Fortnite fix.
+
+## Native D3D12 capability probing
+Intel HD 520 feature-query and compute-execution evidence: [HD520 DX12 Feature Probe V01](docs/HD520_DX12_FEATURE_PROBE_V01.md).
