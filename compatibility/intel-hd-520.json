@@ -1,6 +1,6 @@
 {
   "schema": "underdog.compatibility.public.v1",
-  "snapshot_utc": "2026-11-09T15:52:25.443138+00:00",
+  "snapshot_utc": "2026-11-09T16:01:21.398179+00:00",
   "hardware": {
     "hardware_id": "host02-intel-hd-520",
     "host_id": "WINDOWS_EXECUTION_HOST_02",
@@ -37,6 +37,16 @@
       "graphics_api": "Legacy 2D / wrapper dependent",
       "blocking_reason": "Clone playability is not Underdog compatibility",
       "next_test": "Identify owned clone renderer then add texture policy"
+    },
+    {
+      "game_id": "dethrace-1997",
+      "title": "Carmageddon (1997) via Dethrace",
+      "status": "in_progress",
+      "native_baseline": "historically_raced_not_revalidated",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "SDL2 platform renderer / game's own reconstruction",
+      "blocking_reason": "Dethrace engine and licensing are separate from TDR 2000; SDL renderer integration not verified on Host 02",
+      "next_test": "Resolve Dethrace execution scope, inspect live SDL rendering interface, integrate Underdog as opt-in backend, then race/benchmark with owned game assets"
     },
     {
       "game_id": "tdr-2000",
@@ -121,7 +131,7 @@
   ],
   "counts": {
     "compatible": 1,
-    "in_progress": 9,
+    "in_progress": 10,
     "not_feasible": 0
   },
   "provenance": "Local AIOS SQLite is engineering authority. Public snapshot intentionally excludes machine paths and private data.",

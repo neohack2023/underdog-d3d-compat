@@ -10,6 +10,7 @@ Only the integrated original Underdog rendering demo has passed a complete GPU-t
 |---|---|---|---|---|
 | Underdog Arena (original integration fixture) | compatible | not_applicable_original_underdog_game_demo | verified_runtime_bvh_gpu_swapchain | Independent manual camera playtest, additional mesh and 3200 triangle presentation fixture |
 | Arcanum | in progress | historically_playable_clone | not_integrated | Identify owned clone renderer then add texture policy |
+| Carmageddon (1997) via Dethrace | in progress | historically_raced_not_revalidated | not_integrated | Resolve Dethrace execution scope, inspect live SDL rendering interface, integrate Underdog as opt-in backend, then race/benchmark with owned game assets |
 | Carmageddon TDR 2000 | in progress | historically_playable_or_demo | not_integrated | Independent baseline and owned adapter evaluation |
 | Duke Nukem 3D Atomic | in progress | not_revalidated | not_integrated | Use supported source port to establish independent gameplay baseline |
 | Far Cry (2004) | in progress | not_revalidated | not_integrated | Native baseline with safe process monitoring |
@@ -33,7 +34,7 @@ The three images are actual 128x128 GPU readbacks, enlarged for inspection. None
 
 ## Immediate next candidates
 
-- **Underdog Arena:** Green for the original interactive renderer demo, using the runtime and a 12-triangle OBJ BVH. Manual user camera controls and larger scene tests remain.
+- **Underdog Arena:** Green for the original interactive renderer demo. The 12-, 800- and 3,200-triangle GPU BVH scenes all passed real swapchain presentation tests with scripted camera movement. Manual controller/gameplay features remain limited.
 - **Quake 1:** Investigate a source-available renderer adapter. No Underdog code is integrated into Quake yet.
 - **Carmageddon TDR 2000 / Interstate '82:** Investigate existing native rendering and compatibility paths first; standalone demos/earlier playability do not imply Underdog integration.
 - **Fortnite:** Game process triggers Intel graphics driver resets on this OS/driver. No supported in-process adapter has been installed or tested.

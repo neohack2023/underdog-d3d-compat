@@ -19,3 +19,5 @@ jobs:
         run: cmake --build build --config Release --parallel 2
       - name: Test (no hardware GPU required)
         run: ctest --test-dir build -C Release --output-on-failure
+      - name: Validate hardware compatibility matrix
+        run: python tools/validate_compatibility.py
