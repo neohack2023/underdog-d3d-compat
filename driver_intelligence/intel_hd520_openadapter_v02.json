@@ -1,0 +1,153 @@
+{
+  "schema": "underdog.intel_gen9.adapter_address_map.v2",
+  "hardware": {
+    "name": "Intel HD Graphics 520",
+    "pci": "8086:1916"
+  },
+  "versions": {
+    "old": "21.20.16.4534",
+    "installed": "22.20.16.4836"
+  },
+  "source_evidence_sha256": "6d4389421c012f036ad5c4ce31abb2831dfbde73b1b00c7b31fa8aa7f0619c67",
+  "method": "Read-only Ghidra bounded slices and PE jump-table decoding",
+  "entry_rva": {
+    "old": "0x90af0",
+    "installed": "0x57f50"
+  },
+  "old": {
+    "implementation_rva": "0x913d0",
+    "slots": {
+      "0": "0x19bbb0",
+      "8": "0x19bbd0",
+      "40": "0x19bbf0",
+      "48": "0x19bc10",
+      "56": "0x19bc40",
+      "16": "0x19bb80",
+      "24": "0x19bc50",
+      "32": "0x19bc70"
+    }
+  },
+  "installed": {
+    "jump_table_rva": "0x58040",
+    "variants": [
+      {
+        "implementation_rva": "0x581c0",
+        "query_codes": [
+          "0x1a"
+        ],
+        "slots": {
+          "0x0": "0x3a2060",
+          "0x8": "0x3a2080",
+          "0x10": "0x3a1f80",
+          "0x18": "0x3a2100",
+          "0x20": "0x3a2120",
+          "0x28": "0x3a20a0",
+          "0x30": "0x3a20c0",
+          "0x38": "0x3a20f0"
+        }
+      },
+      {
+        "implementation_rva": "0xcfed0",
+        "query_codes": [
+          "0x1c"
+        ],
+        "slots": {
+          "0x0": "0x3d08c0",
+          "0x8": "0x3d08e0",
+          "0x10": "0x3d07e0",
+          "0x18": "0x3d0960",
+          "0x20": "0x3d0980",
+          "0x28": "0x3d0900",
+          "0x30": "0x3d0920",
+          "0x38": "0x3d0950"
+        }
+      },
+      {
+        "implementation_rva": "0x1213b0",
+        "query_codes": [
+          "0x1b",
+          "0x1d",
+          "0x1e"
+        ],
+        "slots": {
+          "0x0": "0x4000a0",
+          "0x8": "0x4000c0",
+          "0x10": "0x3fffc0",
+          "0x18": "0x400140",
+          "0x20": "0x400160",
+          "0x28": "0x4000e0",
+          "0x30": "0x400100",
+          "0x38": "0x400130"
+        }
+      },
+      {
+        "implementation_rva": "0x15a930",
+        "query_codes": [
+          "0x1f"
+        ],
+        "slots": {
+          "0x0": "0x403120",
+          "0x8": "0x403140",
+          "0x10": "0x403040",
+          "0x18": "0x4031c0",
+          "0x20": "0x4031e0",
+          "0x28": "0x403160",
+          "0x30": "0x403180",
+          "0x38": "0x4031b0"
+        }
+      },
+      {
+        "implementation_rva": "0x1b0e60",
+        "query_codes": [
+          "0x12",
+          "0x13",
+          "0x14",
+          "0x16",
+          "0x17",
+          "0x18"
+        ],
+        "slots": {
+          "0x0": "0x42f9c0",
+          "0x8": "0x42f9e0",
+          "0x10": "0x42f8e0",
+          "0x18": "0x42fa60",
+          "0x20": "0x42fa80",
+          "0x28": "0x42fa00",
+          "0x30": "0x42fa20",
+          "0x38": "0x42fa50"
+        }
+      }
+    ],
+    "case_to_implementation": {
+      "0x12": "0x1b0e60",
+      "0x13": "0x1b0e60",
+      "0x14": "0x1b0e60",
+      "0x16": "0x1b0e60",
+      "0x17": "0x1b0e60",
+      "0x18": "0x1b0e60",
+      "0x1a": "0x581c0",
+      "0x1b": "0x1213b0",
+      "0x1d": "0x1213b0",
+      "0x1e": "0x1213b0",
+      "0x1c": "0xcfed0",
+      "0x1f": "0x15a930",
+      "0x15": "E_INVALIDARG",
+      "0x19": "E_INVALIDARG"
+    }
+  },
+  "slots": {
+    "offsets": [
+      "0x0",
+      "0x8",
+      "0x10",
+      "0x18",
+      "0x20",
+      "0x28",
+      "0x30",
+      "0x38"
+    ],
+    "semantic_names": "UNRESOLVED"
+  },
+  "status": "Verified adapter function-table assignment RVAs; CreateDevice identification unresolved.",
+  "distribution": "No Intel binaries, system-specific DriverStore paths, disassembly text, or game logs included."
+}

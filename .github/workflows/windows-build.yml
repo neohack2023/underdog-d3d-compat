@@ -21,3 +21,5 @@ jobs:
         run: ctest --test-dir build -C Release --output-on-failure
       - name: Validate hardware compatibility matrix
         run: python tools/validate_compatibility.py
+      - name: Validate Intel driver interface map (static, no GPU required)
+        run: python tools/driver_intelligence/validate_intel_adapter_map.py
