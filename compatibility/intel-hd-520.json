@@ -1,0 +1,129 @@
+{
+  "schema": "underdog.compatibility.public.v1",
+  "snapshot_utc": "2026-11-09T15:52:25.443138+00:00",
+  "hardware": {
+    "hardware_id": "host02-intel-hd-520",
+    "host_id": "WINDOWS_EXECUTION_HOST_02",
+    "gpu": "Intel HD Graphics 520",
+    "vendor_id": "8086",
+    "device_id": "1916",
+    "gpu_driver": "22.20.16.4836",
+    "windows": "Windows 10 Home 1903 / 18362",
+    "cpu": "Intel i7-6500U",
+    "ram_gib": 11.89
+  },
+  "status_definitions": {
+    "compatible": "Working Underdog-instrumented, hardware-observed interactive slice with stable frames and image witness. Check scope: demo != full game.",
+    "in_progress": "Candidate, unverified, native-only baseline, or failed current configuration without demonstrated hard impossibility.",
+    "not_feasible": "Demonstrated infeasible on the specified hardware/driver/backend after bounded performance/correctness evaluation."
+  },
+  "games": [
+    {
+      "game_id": "underdog-arena",
+      "title": "Underdog Arena (original integration fixture)",
+      "status": "compatible",
+      "native_baseline": "not_applicable_original_underdog_game_demo",
+      "underdog_integration": "verified_runtime_bvh_gpu_swapchain",
+      "graphics_api": "D3D12",
+      "blocking_reason": "No production game mechanics; only camera controls and OBJ raycast mesh",
+      "next_test": "Independent manual camera playtest, additional mesh and 3200 triangle presentation fixture"
+    },
+    {
+      "game_id": "arcanum",
+      "title": "Arcanum",
+      "status": "in_progress",
+      "native_baseline": "historically_playable_clone",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Legacy 2D / wrapper dependent",
+      "blocking_reason": "Clone playability is not Underdog compatibility",
+      "next_test": "Identify owned clone renderer then add texture policy"
+    },
+    {
+      "game_id": "tdr-2000",
+      "title": "Carmageddon TDR 2000",
+      "status": "in_progress",
+      "native_baseline": "historically_playable_or_demo",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Legacy Direct3D / DirectDraw dependent",
+      "blocking_reason": "Prior browser demo and patches do not establish Underdog integration",
+      "next_test": "Independent baseline and owned adapter evaluation"
+    },
+    {
+      "game_id": "duke3d",
+      "title": "Duke Nukem 3D Atomic",
+      "status": "in_progress",
+      "native_baseline": "not_revalidated",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Software / source-port dependent",
+      "blocking_reason": "DOS game's software renderer is not Direct3D integration",
+      "next_test": "Use supported source port to establish independent gameplay baseline"
+    },
+    {
+      "game_id": "far-cry-1",
+      "title": "Far Cry (2004)",
+      "status": "in_progress",
+      "native_baseline": "not_revalidated",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Direct3D9 / OpenGL depending on build",
+      "blocking_reason": "Installed payload isn't proof of a functional renderer",
+      "next_test": "Native baseline with safe process monitoring"
+    },
+    {
+      "game_id": "fortnite",
+      "title": "Fortnite",
+      "status": "in_progress",
+      "native_baseline": "driver_reset",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "D3D12 / Performance mode",
+      "blocking_reason": "Intel igfx Event 4101 and DXGI_ERROR_DRIVER_INTERNAL_ERROR; protected process not modifiable",
+      "next_test": "Hold on game reinstrumentation until supported OS/driver test plan"
+    },
+    {
+      "game_id": "interstate-82",
+      "title": "Interstate '82",
+      "status": "in_progress",
+      "native_baseline": "historically_playable",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Legacy D3D7 / DDraw wrapper",
+      "blocking_reason": "Legacy driver route and game startup have unresolved stability issues",
+      "next_test": "Instrument stable graphics path in isolated fixture"
+    },
+    {
+      "game_id": "mgrr",
+      "title": "Metal Gear Rising Revengeance",
+      "status": "in_progress",
+      "native_baseline": "historically_playable",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Direct3D9",
+      "blocking_reason": "Game has run previously, but no wrapper integration",
+      "next_test": "Native baseline measured separately from cooperative adapter"
+    },
+    {
+      "game_id": "quake-1",
+      "title": "Quake (1996)",
+      "status": "in_progress",
+      "native_baseline": "baseline_not_revalidated",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Software / OpenGL source-port dependent",
+      "blocking_reason": "Original payload exists, but no current Underdog integration receipt",
+      "next_test": "Check an unprotected source port and its real render backend"
+    },
+    {
+      "game_id": "ut2004",
+      "title": "Unreal Tournament 2004",
+      "status": "in_progress",
+      "native_baseline": "not_revalidated",
+      "underdog_integration": "not_integrated",
+      "graphics_api": "Direct3D9 / OpenGL",
+      "blocking_reason": "Game files exist but current playable GPU witness missing",
+      "next_test": "Native baseline, supported renderer options, then integration"
+    }
+  ],
+  "counts": {
+    "compatible": 1,
+    "in_progress": 9,
+    "not_feasible": 0
+  },
+  "provenance": "Local AIOS SQLite is engineering authority. Public snapshot intentionally excludes machine paths and private data.",
+  "caveat": "Game-installed != Underdog-compatible; no third-party title is claimed integrated."
+}

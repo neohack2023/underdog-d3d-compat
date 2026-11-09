@@ -84,3 +84,8 @@ Build and test with Visual Studio 2022 and CMake:
 The hardware-dependent integration smoke test is compiled but not run on GitHub-hosted CI. It can be run explicitly as build/Release/underdog_runtime_hardware_smoke.exe on a physical GPU.
 
 GitHub Actions verifies Windows MSVC compilation and CPU-safe policies, not real gaming performance or Fortnite compatibility.
+## Hardware-specific game compatibility
+
+See the [Intel HD Graphics 520 game matrix](compatibility/README.md). It separates native game behavior from actual Underdog integration and includes compatible, in-progress and not-feasible statuses. The original Underdog Arena is the first GPU-to-window test to pass, not a third-party game integration.
+
+To test the three original 3D scenes after building, use the Host 02 compatibility dashboard or the manual tools/run_arena_hd520.cmd launcher. The OBJ/BVH raytracer now drives an actual D3D12 flip-model swap chain.

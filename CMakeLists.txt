@@ -28,3 +28,7 @@ endif()
 # Built but not run in hosted CI: needs an actual D3D12 device.
 add_executable(underdog_runtime_hardware_smoke tests/runtime_hardware_smoke.cpp)
 target_link_libraries(underdog_runtime_hardware_smoke PRIVATE UnderdogRuntime)
+
+# Original interactive game-like BVH-to-swapchain integration fixture
+add_executable(underdog_arena examples/games/underdog_arena_v02.cpp)
+target_link_libraries(underdog_arena PRIVATE UnderdogRuntime d3dcompiler user32)

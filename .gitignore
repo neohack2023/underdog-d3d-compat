@@ -19,3 +19,5 @@ build/
 out/
 /**/*.obj
 !/fixtures/*.obj
+
+!compatibility/hd520-render-witness.png
