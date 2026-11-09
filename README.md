@@ -107,3 +107,5 @@ Intel HD 520 feature-query and compute-execution evidence: [HD520 DX12 Feature P
 ## HD 520 Tier 3 and real-game baseline
 - [Bounded native GPU Tier3 and texture validation](docs/HD520_BINDING_TEXTURE_V01.md)
 - [Veloren isolated opt-in audit and PresentMon A/B/C protocol](docs/VELOREN_AUDIT_AB_PROTOCOL_V01.md)
+
+Native Veloren performance/terrain defect investigation: [triage and isolated rendering controls](docs/VELOREN_TERRAIN_VOID_TRIAGE_V01.md).

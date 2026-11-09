@@ -45,3 +45,9 @@ When the separate consumer build exists, `UNDERDOG_WGPU_AUDIT=1` records device 
 - Measure A/B/C (and D if justified) on the same in-world route.
 
 No current record should be classified as `compatible` for Underdog+Veloren. Native Veloren D3D12 is compatible with this GPU/driver; Underdog integration remains `in_progress`.
+
+## Native low-cost control and terrain void, November 9
+
+The user reported extremely slow gameplay and a black hole of terrain blocks beneath the character. The visual hole is **user-observed, not instrumented or root-caused**. Latest native-only PresentMon data: original 1.0-scale forest approximately 6.10 FPS (209 frames), isolated 0.65-scale effects-high village approximately 6.11 FPS (208 frames), isolated 0.65-scale reduced-effects village approximately 12.24 FPS (423 frames). The latter two have matching world/character but no frozen camera, weather or time; no per-effect causal conclusion. The low-effects runtime profile retained fluid Medium and reflection High, with clouds Low, shadows None, bloom Off, glow 0.0. See `docs/VELOREN_TERRAIN_VOID_TRIAGE_V01.md` and governed Host02 receipts.
+
+The isolated 22.7MB mutable userdata fixture is not a canonical game archive and must remain protected until the terrain-void investigation closes. It is separate from the original unchanged player save and will be evaluated for cleanup when reconstruction is proven. Audit/Underdog source patch is still not compiled, so no speedup attribution is allowed.
