@@ -27,3 +27,5 @@ jobs:
         run: python tools/driver_intelligence/validate_intel_createdevice.py
       - name: Validate Intel D3D12 PSO and resource callback map
         run: python tools/driver_intelligence/validate_intel_pso_resource.py
+      - name: Validate typed UAV binding witness metadata
+        run: python tools/driver_intelligence/validate_uav_binding_v05.py

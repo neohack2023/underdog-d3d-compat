@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include "AIOS_UNDERDOG_FENCED_TEXTURE_BUDGET_V02.h"
+#include "underdog/UavBindingPolicy.h"
 #include "AIOS_UNDERDOG_TEXTURE_FORMAT_POLICY_V01.h"
 namespace underdog {
 enum class Backend : uint8_t { Unavailable, NativeD3D12, ComputeFallback, CpuReference };

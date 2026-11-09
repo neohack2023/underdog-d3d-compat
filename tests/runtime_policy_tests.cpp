@@ -26,6 +26,15 @@ int main(){
  EXPECT(AIOSUnderdog::encodedByteCount(128,128,4,DXGI_FORMAT_BC1_UNORM)==10880);
  EXPECT(AIOSUnderdog::encodedByteCount(128,128,4,DXGI_FORMAT_BC3_UNORM)==21760);
  EXPECT(AIOSUnderdog::encodedByteCount(128,128,4,DXGI_FORMAT_R8G8B8A8_UNORM)==87040);
+ EXPECT(chooseUavBinding(UavResourceKind::TypedTexture2D,true).method==UavBindingMethod::DescriptorTable);
+ EXPECT(chooseUavBinding(UavResourceKind::TypedTexture2D,true).fallbackApplied);
+ EXPECT(chooseUavBinding(UavResourceKind::TypedBuffer,true).method==UavBindingMethod::DescriptorTable);
+ EXPECT(chooseUavBinding(UavResourceKind::StructuredBuffer,true).method==UavBindingMethod::RootDescriptor);
+ EXPECT(chooseUavBinding(UavResourceKind::RawBuffer,true).method==UavBindingMethod::RootDescriptor);
+ EXPECT(chooseUavBinding(UavResourceKind::StructuredBuffer,false).method==UavBindingMethod::DescriptorTable);
+ EXPECT(chooseUavBinding(UavResourceKind::Unknown,true).method==UavBindingMethod::Unsupported);
+ EXPECT(!canUseRootUav(UavResourceKind::TypedTexture2D));
+ EXPECT(canUseRootUav(UavResourceKind::StructuredBuffer));
  Runtime noDevice(nullptr);
  AIOSUnderdog::TextureRef ref;
  EXPECT(!noDevice.capabilities().deviceAvailable);

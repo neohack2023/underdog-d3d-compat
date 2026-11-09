@@ -1,0 +1,40 @@
+{
+  "schema": "underdog.intel_gen9.typed_uav_binding_regression.v05",
+  "hardware": {
+    "gpu": "Intel HD Graphics 520",
+    "pci_id": "8086:1916",
+    "driver": "22.20.16.4836"
+  },
+  "method": "1-pixel native D3D12 compute shader, root UAV vs descriptor-table binding",
+  "format_modes": [
+    "R32G32B32A32_FLOAT",
+    "R8G8B8A8_UNORM"
+  ],
+  "repetitions_per_mode": 3,
+  "accepted_matrix_runs": 6,
+  "typed_root": {
+    "pso_hresult": "0x80070057",
+    "gpu_dispatch": "NOT_SUBMITTED",
+    "binding_policy": "DESCRIPTOR_TABLE_FALLBACK"
+  },
+  "typed_table": {
+    "pso_hresult": "0x00000000",
+    "pixel_validation": "PASS",
+    "device_removed_reason": "0x00000000"
+  },
+  "structured_root": {
+    "pso_hresult": "0x00000000",
+    "pixel_validation": "PASS"
+  },
+  "structured_table": {
+    "pso_hresult": "0x00000000",
+    "pixel_validation": "PASS"
+  },
+  "rgba8_bytes": "64,128,191,255",
+  "debug_layer_query": "0x887A002D (unavailable, not enabled)",
+  "source_sha256": "aeb5546ce2f7ebdab4af46ff9c4adaa76a83414536c7d5c747ed570d7a754150",
+  "binary_sha256": "e1f9fdfc2c0db1490a5970f3d3238c353e14817962804480455b33dd70d7e762",
+  "local_evidence_sha256": "c834c406f96de448c1a4a79fd885caf00908cab493ffee30dee1ed29a89da9a0",
+  "caution": "This isolates a minimal shader/root-signature contract mismatch, not a live Intel DDI callback or a Fortnite driver fault.",
+  "official_reference": "https://learn.microsoft.com/en-us/windows/desktop/direct3d12/using-descriptors-directly-in-the-root-signature"
+}

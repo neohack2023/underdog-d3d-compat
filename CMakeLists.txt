@@ -29,6 +29,10 @@ endif()
 add_executable(underdog_runtime_hardware_smoke tests/runtime_hardware_smoke.cpp)
 target_link_libraries(underdog_runtime_hardware_smoke PRIVATE UnderdogRuntime)
 
+# Owned 1-pixel typed/structured UAV root versus descriptor table regression. Build only in hosted CI.
+add_executable(underdog_typed_uav_ab examples/diagnostics/typed_uav_bindings_v01.cpp)
+target_link_libraries(underdog_typed_uav_ab PRIVATE UnderdogRuntime d3dcompiler)
+
 # Original interactive game-like BVH-to-swapchain integration fixture
 add_executable(underdog_arena examples/games/underdog_arena_v02.cpp)
 target_link_libraries(underdog_arena PRIVATE UnderdogRuntime d3dcompiler user32)
