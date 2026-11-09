@@ -48,3 +48,35 @@ adapter callback slots are still unresolved. Read the new machine-readable mappi
 Next engineering trace: follow the device initialization helpers to locate actual
 device-function table population and identify the graphics PSO and resource creation
 DDI entrypoints. Keep Intel binaries and raw disassembly local.
+
+
+## Device core V04: PSO and heap/resource boundaries (static)
+
+Following the installed driver's versioned CreateDevice callback, the adapter's
+FillDDITable entry at adapter table offset +0x30 (RVA 0x400100) forwards to
+implementation RVA 0x1225b0. It dispatches based on the requested DDI table code,
+table size, and output pointer. Four core-function table constructors were statically
+recovered: 0x1234A0 (712 bytes), 0x122FB0, 0x121730 and 0x122020 (736 bytes each).
+
+In their versioned D3D12 device-core table layouts, the documented
+CreatePipelineState callback is offset +0x110 and CreateHeapAndResource is offset +0x1E0.
+Ghidra verified all eight assigned callback wrappers and the first forwarded
+implementation in the installed Intel binary.
+
+| Constructor RVA | PSO wrapper -> implementation RVA | Resource wrapper -> implementation RVA |
+|---|---|---|
+| 0x1234A0 | 0x400C00 -> 0x12D3E0 | 0x401120 -> 0x137D90 |
+| 0x122FB0 | 0x400BC0 -> 0x12D160 | 0x401300 -> 0x13BC90 |
+| 0x121730 | 0x400C40 -> 0x12CED0 | 0x401300 -> 0x13BC90 |
+| 0x122020 | 0x400CA0 -> 0x12CBE0 | 0x4014C0 -> 0x13BB50 |
+
+Exact negotiated DDI *version names*, live invoked callbacks, and a causal
+graphics-driver fault mechanism remain unproven. The API-level owned fixture replay
+passed four tests: graphics PSO, mixed graphics+textures, bounded resource escalator
+and 60-frame Underdog Arena. These demonstrate known-good Direct3D API use only.
+
+Machine-readable source-free map:
+[Core PSO/resource RVA map](../driver_intelligence/intel_hd520_pso_resource_v04.json).
+
+Research remains read-only. Proprietary Intel binaries and raw disassembly live
+exclusively in local AIOS evidence storage, not in the MIT repository.

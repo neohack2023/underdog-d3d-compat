@@ -25,3 +25,5 @@ jobs:
         run: python tools/driver_intelligence/validate_intel_adapter_map.py
       - name: Validate Intel CreateDevice callback mapping
         run: python tools/driver_intelligence/validate_intel_createdevice.py
+      - name: Validate Intel D3D12 PSO and resource callback map
+        run: python tools/driver_intelligence/validate_intel_pso_resource.py

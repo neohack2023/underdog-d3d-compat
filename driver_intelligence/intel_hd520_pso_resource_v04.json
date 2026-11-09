@@ -1,0 +1,109 @@
+{
+  "schema": "underdog.intel_gen9.device_core_pso_resource_static_map.v4",
+  "hardware": "Intel HD Graphics 520 (8086:1916)",
+  "driver_version": "22.20.16.4836",
+  "analysis": "Static Ghidra read-only, official D3D12 DDI field-order correlation. No dynamic Intel DDI execution verified.",
+  "adapter_filled_table_slot": "0x30",
+  "fill_ddi_wrapper_rva": "0x400100",
+  "fill_ddi_implementation_rva": "0x1225b0",
+  "ddi_slot_offsets": {
+    "CreatePipelineState": "0x110",
+    "CreateHeapAndResource": "0x1e0"
+  },
+  "variants": [
+    {
+      "table_constructor_rva": "0x1234a0",
+      "observed_ddi_code": "0xc0002",
+      "size_bytes": 712,
+      "pointer_slots_initialized": 88,
+      "exact_version_name": "UNRESOLVED",
+      "callbacks": {
+        "CreatePipelineState": {
+          "slot_offset": "0x110",
+          "wrapper_rva": "0x400c00",
+          "implementation_rva": "0x12d3e0",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        },
+        "CreateHeapAndResource": {
+          "slot_offset": "0x1e0",
+          "wrapper_rva": "0x401120",
+          "implementation_rva": "0x137d90",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        }
+      }
+    },
+    {
+      "table_constructor_rva": "0x122fb0",
+      "observed_ddi_code": "0xc000a",
+      "size_bytes": 736,
+      "pointer_slots_initialized": 91,
+      "exact_version_name": "UNRESOLVED",
+      "callbacks": {
+        "CreatePipelineState": {
+          "slot_offset": "0x110",
+          "wrapper_rva": "0x400bc0",
+          "implementation_rva": "0x12d160",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        },
+        "CreateHeapAndResource": {
+          "slot_offset": "0x1e0",
+          "wrapper_rva": "0x401300",
+          "implementation_rva": "0x13bc90",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        }
+      }
+    },
+    {
+      "table_constructor_rva": "0x121730",
+      "observed_ddi_code": "0xc0014",
+      "size_bytes": 736,
+      "pointer_slots_initialized": 91,
+      "exact_version_name": "UNRESOLVED",
+      "callbacks": {
+        "CreatePipelineState": {
+          "slot_offset": "0x110",
+          "wrapper_rva": "0x400c40",
+          "implementation_rva": "0x12ced0",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        },
+        "CreateHeapAndResource": {
+          "slot_offset": "0x1e0",
+          "wrapper_rva": "0x401300",
+          "implementation_rva": "0x13bc90",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        }
+      }
+    },
+    {
+      "table_constructor_rva": "0x122020",
+      "observed_ddi_code": "0xc001e",
+      "size_bytes": 736,
+      "pointer_slots_initialized": 91,
+      "exact_version_name": "UNRESOLVED",
+      "callbacks": {
+        "CreatePipelineState": {
+          "slot_offset": "0x110",
+          "wrapper_rva": "0x400ca0",
+          "implementation_rva": "0x12cbe0",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        },
+        "CreateHeapAndResource": {
+          "slot_offset": "0x1e0",
+          "wrapper_rva": "0x4014c0",
+          "implementation_rva": "0x13bb50",
+          "confidence": "HIGH_STATIC_LAYOUT_CORRELATION_NOT_LIVE_DDI"
+        }
+      }
+    }
+  ],
+  "boundary_qualifications": [
+    "The game process / D3D12 runtime is not traced dynamically through these addresses.",
+    "The old typed UAV shader PSO error 0x80070057 remains an API-level failure of unknown root cause.",
+    "The corrected RWStructuredBuffer shader differs; success does not prove an Intel driver defect or workaround for a driver bug.",
+    "No proprietary Intel binaries or disassembly included."
+  ],
+  "references": [
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/d3d12umddi/nc-d3d12umddi-pfnd3d12ddi_fillddittable",
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/d3d12umddi/ns-d3d12umddi-d3d12ddi_device_funcs_core_0010"
+  ]
+}
