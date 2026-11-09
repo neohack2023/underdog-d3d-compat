@@ -103,3 +103,7 @@ The [V05 diagnostic](docs/TYPED_UAV_BINDING_V05.md) demonstrates the typed-textu
 
 ## Native D3D12 capability probing
 Intel HD 520 feature-query and compute-execution evidence: [HD520 DX12 Feature Probe V01](docs/HD520_DX12_FEATURE_PROBE_V01.md).
+
+## HD 520 Tier 3 and real-game baseline
+- [Bounded native GPU Tier3 and texture validation](docs/HD520_BINDING_TEXTURE_V01.md)
+- [Veloren isolated opt-in audit and PresentMon A/B/C protocol](docs/VELOREN_AUDIT_AB_PROTOCOL_V01.md)
