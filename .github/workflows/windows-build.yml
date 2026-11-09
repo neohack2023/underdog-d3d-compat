@@ -23,3 +23,5 @@ jobs:
         run: python tools/validate_compatibility.py
       - name: Validate Intel driver interface map (static, no GPU required)
         run: python tools/driver_intelligence/validate_intel_adapter_map.py
+      - name: Validate Intel CreateDevice callback mapping
+        run: python tools/driver_intelligence/validate_intel_createdevice.py

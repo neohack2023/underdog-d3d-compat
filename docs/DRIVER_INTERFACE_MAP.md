@@ -28,3 +28,23 @@ Next trace: obtain the exact version-appropriate D3D12DDI_ADAPTERFUNCS layout fr
 No driver modification, game interception, or code from proprietary binaries is in this repository.
 
 Reference: https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/d3d12umddi/ns-d3d12umddi-d3d12ddiarg_openadapter
+
+
+## Update V03: high-confidence CreateDevice identification
+
+The eight-slot adapter-function table was previously preserved with semantic names unresolved.
+A new read-only Ghidra pass traced slot +0x08 in all five installed-driver variants through
+the forwarding wrapper to actual code. All five implementations read UINT fields at
+second argument offsets +0x08 (Interface) and +0x0C (Version), matching the official
+D3D12DDIARG_CREATEDEVICE_0003 declaration. The variant covering query value 0x1B
+also calls an initializer at RVA 0x124900 that copies +0x08 (Interface), +0x0C (Version),
++0x20 (p12UMCallbacks) and +0x28 (Flags).
+
+The callback is now labeled PFND3D12DDI_CREATEDEVICE_0003 with HIGH-CONFIDENCE STATIC
+signature matching. This does not claim dynamic driver execution. The other seven
+adapter callback slots are still unresolved. Read the new machine-readable mapping:
+[CreateDevice RVA trace](../driver_intelligence/intel_hd520_createdevice_v03.json).
+
+Next engineering trace: follow the device initialization helpers to locate actual
+device-function table population and identify the graphics PSO and resource creation
+DDI entrypoints. Keep Intel binaries and raw disassembly local.

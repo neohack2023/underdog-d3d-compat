@@ -1,0 +1,88 @@
+{
+  "schema": "underdog.intel_gen9.createdevice_static_map.v3",
+  "hardware": "Intel HD Graphics 520 PCI 8086:1916",
+  "driver_version": "22.20.16.4836",
+  "basis": "Read-only Ghidra 12.1.4 and official D3D12DDIARG_CREATEDEVICE_0003 field signature",
+  "adapter_slot_offset": "0x08",
+  "semantic_name": "PFND3D12DDI_CREATEDEVICE_0003",
+  "confidence": "HIGH_CONFIDENCE_STATIC_SIGNATURE_NOT_DYNAMIC",
+  "dispatch_variants": [
+    {
+      "variant_rva": "0x1b0e60",
+      "dispatch_values": [
+        "0x12",
+        "0x13",
+        "0x14",
+        "0x16",
+        "0x17",
+        "0x18"
+      ],
+      "slot_offset": "0x08",
+      "callback_wrapper_rva": "0x42f9e0",
+      "implementation_rva": "0x1b2810",
+      "confidence": "HIGH_STATIC_DDI_SIGNATURE"
+    },
+    {
+      "variant_rva": "0x581c0",
+      "dispatch_values": [
+        "0x1a"
+      ],
+      "slot_offset": "0x08",
+      "callback_wrapper_rva": "0x3a2080",
+      "implementation_rva": "0x5a800",
+      "confidence": "HIGH_STATIC_DDI_SIGNATURE"
+    },
+    {
+      "variant_rva": "0x1213b0",
+      "dispatch_values": [
+        "0x1b",
+        "0x1d",
+        "0x1e"
+      ],
+      "slot_offset": "0x08",
+      "callback_wrapper_rva": "0x4000c0",
+      "implementation_rva": "0x122d40",
+      "confidence": "HIGH_STATIC_DDI_SIGNATURE"
+    },
+    {
+      "variant_rva": "0xcfed0",
+      "dispatch_values": [
+        "0x1c"
+      ],
+      "slot_offset": "0x08",
+      "callback_wrapper_rva": "0x3d08e0",
+      "implementation_rva": "0xd1860",
+      "confidence": "HIGH_STATIC_DDI_SIGNATURE"
+    },
+    {
+      "variant_rva": "0x15a930",
+      "dispatch_values": [
+        "0x1f"
+      ],
+      "slot_offset": "0x08",
+      "callback_wrapper_rva": "0x403140",
+      "implementation_rva": "0x15c2c0",
+      "confidence": "HIGH_STATIC_DDI_SIGNATURE"
+    }
+  ],
+  "additional_call_chain": {
+    "variant": "0x1b",
+    "initializer_rva": "0x124900",
+    "offsets": {
+      "Interface": "0x08",
+      "Version": "0x0c",
+      "p12UMCallbacks": "0x20",
+      "Flags": "0x28"
+    }
+  },
+  "documentation_urls": [
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/d3d12umddi/ns-d3d12umddi-d3d12ddiarg_createdevice_0003",
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/d3d12umddi/nc-d3d12umddi-pfnd3d12ddi_createdevice_0003"
+  ],
+  "limitations": [
+    "No live DDI invocation captured",
+    "Other adapter slots still unresolved",
+    "Does not identify PSO or resource driver functions",
+    "No Intel binary data, instruction text or installed binary copied"
+  ]
+}
