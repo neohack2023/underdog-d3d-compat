@@ -1,6 +1,6 @@
 # Intel HD 520 DirectX 12 feature probe V01
 
-Status: **hardware capability inquiry complete; bounded SM5.1 compute execution complete; SM6.1 execution unverified.** Tested November 9, 2026 on Windows 10 18362, Intel HD 520 (8086:1916), driver 22.20.16.4836. No driver changes, DLL interception, WARP fallback, or game patches.
+Status: **hardware capability inquiry complete; bounded SM5.1 compute execution complete; SM6.1 WaveOps 32-lane bounded execution verified.** Tested November 9, 2026 on Windows 10 18362, Intel HD 520 (8086:1916), driver 22.20.16.4836. No driver changes, DLL interception, WARP fallback, or game patches.
 
 ## Driver-reported API capabilities
 
@@ -16,7 +16,7 @@ Status: **hardware capability inquiry complete; bounded SM5.1 compute execution 
 | ConservativeRasterizationTier | 3 | Query successful, no raster test |
 | Additional typed UAV formats | true | Query successful, no per-format execution |
 | Rasterizer ordered views | true | Query successful, no ordering test |
-| OPTIONS1 WaveOps | true | Query successful, no wave intrinsic execution |
+| OPTIONS1 WaveOps | true | Query successful, separate bounded WaveGetLaneCount/WaveActiveSum execution PASS |
 | OPTIONS5 RaytracingTier | 0 | Native DXR unavailable |
 | FORMAT_SUPPORT | RGBA8, BGRA8, RGBA16F, BC1, BC3, BC7, D32F, RGBA8_UINT all S_OK | Raw Support1/Support2 bits retained. **Not proof of every format operation** |
 
@@ -46,3 +46,9 @@ The **unchanged** Veloren official Windows weekly (revision da6626e6, 2026-10-27
 ## Storage and provenance policy
 
 Keep source code, small machine-readable receipts, database facts and evidence hashes. Build objects and duplicate scratch may be removed after reproduction is established. Never treat cleanup as license to discard immutable game baselines, original source archives, failed-run evidence, or unresolved project material. GitHub owns live repository implementation; Host 02 owns runtime evidence; Drive is the authority for governed AIOS durable records, not Notion.
+
+## SM6.1 WaveOps actual hardware execution V01
+
+DXC successfully compiled a cs_6_1 shader, CreateComputePipelineState returned S_OK, and a 32-thread dispatch using WaveGetLaneCount + WaveActiveSum produced 32/32 valid uint2 GPU-readback pairs on Intel HD 520. Both values agreed; the actual wave width was 16 lanes. DeviceRemovedReason was 0x00000000. This is a bounded witness, not exhaustive Shader Model 6.1 conformance or a game compatibility improvement.
+
+Rebuild/run: tools/diagnostics/build_run_wave_sm61_v01.cmd, source tools/diagnostics/wave_sm61_v01.hlsl and tools/diagnostics/wave_sm61_dispatch_v01.cpp. Ingest: tools/diagnostics/ingest_wave_sm61_v01.py. Host 02 evidence DX12_HD520_SM61_WAVE_V01.json and raw execution log.
