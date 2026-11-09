@@ -1,0 +1,19 @@
+{
+  "schema": "underdog.warp.typed_uav_binding_ab.v06",
+  "adapter": "Microsoft WARP DXGI 1414:008C",
+  "formats": [
+    "R32G32B32A32_FLOAT",
+    "R8G8B8A8_UNORM"
+  ],
+  "matrix_count": 6,
+  "all_pass": true,
+  "typed_root_pso": "0x80070057",
+  "typed_descriptor_table_pso": "0x00000000",
+  "structured_root_pso": "0x00000000",
+  "structured_table_pso": "0x00000000",
+  "valid_cases_pixel": "PASS",
+  "device_removed_reason": "0x00000000",
+  "rgba8_bytes": "64,128,191,255",
+  "raw_evidence_sha256": "414766d30872bc5607fa5f37ff6a385a9285026f0c6181d358c6540300227b66",
+  "caution": "Software D3D12 behavior only; not an Intel DDI execution trace or GPU performance claim."
+}

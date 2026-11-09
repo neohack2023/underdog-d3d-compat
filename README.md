@@ -89,7 +89,14 @@ GitHub Actions verifies Windows MSVC compilation and CPU-safe policies, not real
 See the [Intel HD Graphics 520 game matrix](compatibility/README.md). It separates native game behavior from actual Underdog integration and includes compatible, in-progress and not-feasible statuses. The original Underdog Arena is the first GPU-to-window test to pass, not a third-party game integration.
 
 To test the three original 3D scenes after building, use the Host 02 compatibility dashboard or the manual tools/run_arena_hd520.cmd launcher. The OBJ/BVH raytracer now drives an actual D3D12 flip-model swap chain.
-`n## Intel HD 520 D3D12 driver interface research`nRead-only, cross-version adapter callback maps are documented in [Driver Interface Map](docs/DRIVER_INTERFACE_MAP.md). The [machine-readable pointer map](driver_intelligence/intel_hd520_openadapter_v02.json) records 48 verified function-address assignments across six table variants, without bundling Intel binaries or claiming callback semantics.`n
+
+## Intel HD 520 D3D12 driver interface research
+Read-only, cross-version adapter callback maps are documented in [Driver Interface Map](docs/DRIVER_INTERFACE_MAP.md). The [machine-readable pointer map](driver_intelligence/intel_hd520_openadapter_v02.json) records 48 verified function-address assignments across six table variants, without bundling Intel binaries or claiming callback semantics.
+
+## Arena typed-texture backend and software verification
+
+The [V07 Arena integration and WARP comparison](docs/ARENA_TYPED_TEXTURE_V07.md) validates the optional descriptor-table RWTexture2D output on Intel HD 520 and reproduces the binding rules on Microsoft WARP. Six BVH image pairs are byte-identical; output resource preflight protects against incorrectly sized textures. [View GPU witness montage](evidence/ARENA_HD520_BACKEND_PARITY_V07.png).
+
 ## Typed UAV root binding regression
 
 The [V05 diagnostic](docs/TYPED_UAV_BINDING_V05.md) demonstrates the typed-texture root descriptor mismatch behind the minimal historical Arena PSO error on Intel HD 520. UnderdogRuntime provides a safe UAV binding-selection policy and hardware-free tests. This is not a Fortnite fix.

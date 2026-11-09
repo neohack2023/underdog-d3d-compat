@@ -29,3 +29,5 @@ jobs:
         run: python tools/driver_intelligence/validate_intel_pso_resource.py
       - name: Validate typed UAV binding witness metadata
         run: python tools/driver_intelligence/validate_uav_binding_v05.py
+      - name: Validate WARP and Arena backend GPU witness metadata
+        run: python tools/validate_warp_arena_v07.py

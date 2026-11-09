@@ -153,16 +153,26 @@ static bool test(ID3D12Device* dev,bool typed,bool table){
  return pixel;
 }
 int main(int argc,char** argv){
- g_rgba8=argc>1&&strcmp(argv[1],"--rgba8")==0;
+ bool useWarp=false;
+ for(int i=1;i<argc;i++){if(strcmp(argv[i],"--rgba8")==0)g_rgba8=true;
+ else if(strcmp(argv[i],"--warp")==0)useWarp=true;else{printf("UNKNOWN_OPTION=%s\n",argv[i]);return 7;}}
  puts("AIOS_UNDERDOG_ROOT_VS_TABLE_TYPED_UAV_V01");
+ printf("ADAPTER_MODE=%s\n",useWarp?"WARP_SOFTWARE":"INTEL_HD520");
  printf("FORMAT_MODE=%s\n",g_rgba8?"ORIGINAL_RGBA8_UNORM":"R32G32B32A32_FLOAT");
  ComPtr<IDXGIFactory4> factory;
  if(!ok("FACTORY",CreateDXGIFactory1(IID_PPV_ARGS(&factory))))return 1;
  ComPtr<IDXGIAdapter1> gpu;
- for(UINT i=0;;i++){ComPtr<IDXGIAdapter1> a;if(factory->EnumAdapters1(i,&a)!=S_OK)break;
- DXGI_ADAPTER_DESC1 d={};a->GetDesc1(&d);
- if(d.VendorId==0x8086&&d.DeviceId==0x1916){gpu=a;break;}}
- if(!gpu){puts("HD520_NOT_PRESENT");return 2;}
+ if(useWarp){
+  if(!ok("ENUM_WARP_ADAPTER",factory->EnumWarpAdapter(IID_PPV_ARGS(&gpu))))return 2;
+ }else{
+  for(UINT i=0;;i++){ComPtr<IDXGIAdapter1> a;if(factory->EnumAdapters1(i,&a)!=S_OK)break;
+   DXGI_ADAPTER_DESC1 d={};a->GetDesc1(&d);
+   if(d.VendorId==0x8086&&d.DeviceId==0x1916){gpu=a;break;}}
+ }
+ if(!gpu){puts("REQUESTED_ADAPTER_NOT_PRESENT");return 2;}
+ DXGI_ADAPTER_DESC1 chosen={};gpu->GetDesc1(&chosen);
+ printf("SELECTED_ADAPTER_VEN=0x%04X DEV=0x%04X SOFTWARE=%u\n",chosen.VendorId,chosen.DeviceId,
+  (unsigned int)!!(chosen.Flags&DXGI_ADAPTER_FLAG_SOFTWARE));
  ComPtr<ID3D12Device> dev;
  if(!ok("DEVICE",D3D12CreateDevice(gpu.Get(),D3D_FEATURE_LEVEL_11_0,IID_PPV_ARGS(&dev))))return 3;
  ComPtr<ID3D12Debug> debug;

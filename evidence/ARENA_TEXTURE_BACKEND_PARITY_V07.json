@@ -1,0 +1,154 @@
+{
+  "schema": "underdog.arena.typed_texture_backends.v07",
+  "hardware": {
+    "gpu": "Intel HD Graphics 520",
+    "pci": "8086:1916",
+    "driver": "22.20.16.4836"
+  },
+  "experiment": "Same Arena V03 BVH raytraced scene with structured buffer/root UAV vs typed RGBA8 texture/descriptor-table UAV",
+  "output_preflight": "128x128 resource shape/flags, buffer capacity, actual created GetDesc verified",
+  "camera": "60 identical scripted steps per mode per scene",
+  "run_count": 12,
+  "pair_count": 6,
+  "exact_image_pairs": 6,
+  "different_pixel_channels": 0,
+  "pairs": [
+    {
+      "scene": "cube12",
+      "repeat": 1,
+      "triangles": 12,
+      "frames_per_mode": 60,
+      "exact_pixel_parity": true,
+      "mismatched_channels": 0,
+      "image_sha256": "8ab0a6de86638725f086db2fcbc3dee38c45f598fc9966b8c22a6f48b9dc8a96",
+      "gpu_p50_ms": {
+        "structured": 1.2976,
+        "typed": 1.3242
+      },
+      "gpu_p95_ms": {
+        "structured": 1.6464,
+        "typed": 1.6737
+      },
+      "dxgi_usage_bytes": {
+        "structured": 17772544,
+        "typed": 17776640
+      },
+      "device_removed_reason": "0x00000000"
+    },
+    {
+      "scene": "cube12",
+      "repeat": 2,
+      "triangles": 12,
+      "frames_per_mode": 60,
+      "exact_pixel_parity": true,
+      "mismatched_channels": 0,
+      "image_sha256": "8ab0a6de86638725f086db2fcbc3dee38c45f598fc9966b8c22a6f48b9dc8a96",
+      "gpu_p50_ms": {
+        "structured": 1.3394,
+        "typed": 1.305
+      },
+      "gpu_p95_ms": {
+        "structured": 1.7069,
+        "typed": 1.6299
+      },
+      "dxgi_usage_bytes": {
+        "structured": 17772544,
+        "typed": 17776640
+      },
+      "device_removed_reason": "0x00000000"
+    },
+    {
+      "scene": "grid800",
+      "repeat": 1,
+      "triangles": 800,
+      "frames_per_mode": 60,
+      "exact_pixel_parity": true,
+      "mismatched_channels": 0,
+      "image_sha256": "ca0f29166f4b7ce2d5dec80dfeb2b875d3fdc7a8dd97b45dbe238612f1dc4538",
+      "gpu_p50_ms": {
+        "structured": 1.8642,
+        "typed": 1.7403
+      },
+      "gpu_p95_ms": {
+        "structured": 2.3221,
+        "typed": 2.0786
+      },
+      "dxgi_usage_bytes": {
+        "structured": 17772544,
+        "typed": 17776640
+      },
+      "device_removed_reason": "0x00000000"
+    },
+    {
+      "scene": "grid800",
+      "repeat": 2,
+      "triangles": 800,
+      "frames_per_mode": 60,
+      "exact_pixel_parity": true,
+      "mismatched_channels": 0,
+      "image_sha256": "ca0f29166f4b7ce2d5dec80dfeb2b875d3fdc7a8dd97b45dbe238612f1dc4538",
+      "gpu_p50_ms": {
+        "structured": 1.7817,
+        "typed": 1.7894
+      },
+      "gpu_p95_ms": {
+        "structured": 2.0778,
+        "typed": 2.4962
+      },
+      "dxgi_usage_bytes": {
+        "structured": 17772544,
+        "typed": 17776640
+      },
+      "device_removed_reason": "0x00000000"
+    },
+    {
+      "scene": "grid3200",
+      "repeat": 1,
+      "triangles": 3200,
+      "frames_per_mode": 60,
+      "exact_pixel_parity": true,
+      "mismatched_channels": 0,
+      "image_sha256": "1f86481ad9d9343f34073232e127e99a8b7d36a3843a30dec096a8378188f498",
+      "gpu_p50_ms": {
+        "structured": 1.9407,
+        "typed": 1.9052
+      },
+      "gpu_p95_ms": {
+        "structured": 2.7407,
+        "typed": 2.4547
+      },
+      "dxgi_usage_bytes": {
+        "structured": 18034688,
+        "typed": 18038784
+      },
+      "device_removed_reason": "0x00000000"
+    },
+    {
+      "scene": "grid3200",
+      "repeat": 2,
+      "triangles": 3200,
+      "frames_per_mode": 60,
+      "exact_pixel_parity": true,
+      "mismatched_channels": 0,
+      "image_sha256": "1f86481ad9d9343f34073232e127e99a8b7d36a3843a30dec096a8378188f498",
+      "gpu_p50_ms": {
+        "structured": 1.8627,
+        "typed": 1.9447
+      },
+      "gpu_p95_ms": {
+        "structured": 2.3529,
+        "typed": 2.6663
+      },
+      "dxgi_usage_bytes": {
+        "structured": 18034688,
+        "typed": 18038784
+      },
+      "device_removed_reason": "0x00000000"
+    }
+  ],
+  "visual_witness": "evidence/ARENA_HD520_BACKEND_PARITY_V07.png",
+  "visual_witness_sha256": "87c427b272b07a3a0cf7551762cf357686bf9be85ce0bdc9e69b6b23b1b2f910",
+  "raw_evidence_sha256": "b842716fcfe315b73d01bbe1edeb9be28518c735b87ec223dd32108facc4d865",
+  "performance_limitation": "GPU timestamp readings are descriptive; VSync and desktop GPU activity not controlled. No stable winning backend established.",
+  "scope_limitation": "No Intel driver change, protected game modification, or causal Fortnite fault finding."
+}

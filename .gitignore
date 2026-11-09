@@ -21,3 +21,5 @@ out/
 !/fixtures/*.obj
 
 !compatibility/hd520-render-witness.png
+# Small, original GPU-generated parity witness accepted for regression documentation.
+!evidence/ARENA_HD520_BACKEND_PARITY_V07.png

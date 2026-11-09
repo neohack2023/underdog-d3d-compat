@@ -35,4 +35,8 @@ target_link_libraries(underdog_typed_uav_ab PRIVATE UnderdogRuntime d3dcompiler)
 
 # Original interactive game-like BVH-to-swapchain integration fixture
 add_executable(underdog_arena examples/games/underdog_arena_v02.cpp)
+
+# V03 keeps the verified V02 binary and adds an opt-in legal typed UAV texture path.
+add_executable(underdog_arena_v03 examples/games/underdog_arena_v03.cpp)
+target_link_libraries(underdog_arena_v03 PRIVATE UnderdogRuntime d3dcompiler user32)
 target_link_libraries(underdog_arena PRIVATE UnderdogRuntime d3dcompiler user32)
