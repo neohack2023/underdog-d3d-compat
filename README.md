@@ -117,3 +117,11 @@ Strict byte-counted HTTPS artifact fetcher: `tools/diagnostics/stream_capped_dow
 Terrain tracing progress on Intel HD 520: [Veloren bounded build and runtime gate V03](docs/VELOREN_TERRAIN_RUNTIME_GATE_V03.md).
 
 D3D12 Intel adapter callback identities and read-only Fortnite GPU hang evidence: [HD520 DDI ABI and Fortnite fault V06](docs/INTEL_HD520_ABI_FORTNITE_DRED_V06.md).
+
+## ShaderLab V01: shader compilation and GPU A/B evaluation
+
+ShaderLab extends the original Arena renderer with opt-in FXC optimization-level comparison (O1 baseline, O3 candidate), reproducible source-owned shader manifests, bounded FXC/DXC compiler diagnostics, source-only game API scouting, and an evidence importer for the existing local Underdog SQLite database. No system driver replacement, game injection or third-party binary vendoring.
+
+On Host 02 the V01 compiler matrix passed 6/6 and 24/24 Intel HD 520 Arena GPU executions passed with 12/12 byte-identical shader image pairs. O3 was faster in 5/12 paired GPU P50 measurements; the default O1 path is retained. The 17-folder game scan is only static API reconnaissance and does not prove third-party game compatibility.
+
+See [ShaderLab V01 engineering report](docs/SHADERLAB_V01.md) and [Host 02 game admission matrix](docs/SHADERLAB_GAME_TRIAGE_V01.md). Core scripts: tools/shaderlab.py, tools/shaderlab_gpu_ab.py, tools/shaderlab_game_audit.py, tools/shaderlab_record.py. Tool binary paths and hashes are pinned in the Host 02 local workspace manifest, not redistributed in this repository.
