@@ -49,3 +49,9 @@ Acquire and build a pinned GPL consumer source worktree in a separately bounded 
 Keep original executable SHA and original saved-world/settings untouched; do not assume the current source patch makes Veloren faster or fixes missing terrain. Prior performance A/B and the visual defect remain separately tracked.
 
 Data state: `03_DATASET/VELOREN_TERRAIN_LIFECYCLE_V01.json`, `02_DATABASE/UNDERDOG_D3D_COMPAT_V01.sqlite`, `04_KNOWLEDGE/VELOREN_TERRAIN_TRACE_FINDINGS_V01.md`, `06_EVIDENCE/VELOREN_TERRAIN_SOURCE_TRACE_V01.json`; governed source handoff in `08_HANDOFF`. No Notion writes.
+
+## Bounded source-build preflight
+
+Exact pinned GitLab source archive was fetched to a bounded Host02 evaluation directory for potential full-game compilation. It measured **355,688,314 bytes** (SHA-256 `C00D95E752359EBAD88B41854A6E42E77105CAF66E466B6BFFD997D9A9F3088E`) and exceeded the intended 150,000,000-byte budget. The installed curl `--max-filesize` did not enforce the cap when the response lacked a reliable Content-Length. The archive was immediately deleted and never extracted; **no Veloren consumer game compilation was performed**. Preserve only the tiny preflight receipt in the governed Host 02 workspace.
+
+In response, added `tools/diagnostics/stream_capped_download_v01.py`, a Python byte-counted HTTPS downloader with a hard streaming limit, refusal to overwrite, and guaranteed `.part` cleanup on exceptions. Three synthetic quota tests and a real GitLab source-archive 1 MiB negative-control confirmed early abort with no leftover output or partial. Use this strict downloader rather than curl alone for future archive-size enforcement. The next full consumer build requires an explicitly budgeted source worktree or verified sparse checkout, not another uncontrolled archive extraction.

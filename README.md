@@ -111,3 +111,5 @@ Intel HD 520 feature-query and compute-execution evidence: [HD520 DX12 Feature P
 Native Veloren performance/terrain defect investigation: [triage and isolated rendering controls](docs/VELOREN_TERRAIN_VOID_TRIAGE_V01.md).
 
 Pinned Veloren terrain lifecycle source trace and opt-in diagnostic protocol: [Veloren terrain trace V01](docs/VELOREN_TERRAIN_LIFECYCLE_TRACE_V01.md).
+
+Strict byte-counted HTTPS artifact fetcher: `tools/diagnostics/stream_capped_download_v01.py` (handles missing Content-Length and removes partials).
