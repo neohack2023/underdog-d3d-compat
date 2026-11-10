@@ -113,3 +113,5 @@ Native Veloren performance/terrain defect investigation: [triage and isolated re
 Pinned Veloren terrain lifecycle source trace and opt-in diagnostic protocol: [Veloren terrain trace V01](docs/VELOREN_TERRAIN_LIFECYCLE_TRACE_V01.md).
 
 Strict byte-counted HTTPS artifact fetcher: `tools/diagnostics/stream_capped_download_v01.py` (handles missing Content-Length and removes partials).
+
+Terrain tracing progress on Intel HD 520: [Veloren bounded build and runtime gate V03](docs/VELOREN_TERRAIN_RUNTIME_GATE_V03.md).
