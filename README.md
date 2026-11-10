@@ -115,3 +115,5 @@ Pinned Veloren terrain lifecycle source trace and opt-in diagnostic protocol: [V
 Strict byte-counted HTTPS artifact fetcher: `tools/diagnostics/stream_capped_download_v01.py` (handles missing Content-Length and removes partials).
 
 Terrain tracing progress on Intel HD 520: [Veloren bounded build and runtime gate V03](docs/VELOREN_TERRAIN_RUNTIME_GATE_V03.md).
+
+D3D12 Intel adapter callback identities and read-only Fortnite GPU hang evidence: [HD520 DDI ABI and Fortnite fault V06](docs/INTEL_HD520_ABI_FORTNITE_DRED_V06.md).

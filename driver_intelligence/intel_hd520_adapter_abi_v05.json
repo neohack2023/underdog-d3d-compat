@@ -1,0 +1,91 @@
+{
+  "schema": "underdog.intel_gen9.adapter_semantic_layout.v5",
+  "description": "ABI semantics of 8 x64 adapter callback slots. Versioned official Windows SDK declaration mirrored in pinned public repository; old Intel RVA map remains separate.",
+  "hardware_id": "host02-intel-hd-520",
+  "pci_id": "8086:1916",
+  "driver_versions": [
+    "21.20.16.4534",
+    "22.20.16.4836"
+  ],
+  "sdk_provenance": [
+    {
+      "version": "10.0.10240.0",
+      "repository": "tpn/winsdk-10",
+      "revision": "9b69fd26ac0c7d0b83d378dba01080e93349c2ed",
+      "path": "Include/10.0.10240.0/um/d3d12umddi.h",
+      "git_blob_sha1": "7b25865293f0b7c77313ac8a96d52a6f5a274732"
+    },
+    {
+      "version": "10.0.14393.0",
+      "repository": "tpn/winsdk-10",
+      "revision": "9b69fd26ac0c7d0b83d378dba01080e93349c2ed",
+      "path": "Include/10.0.14393.0/um/d3d12umddi.h",
+      "git_blob_sha1": "1f3bd6cfec324610d1cc650138119394b19636ab"
+    }
+  ],
+  "pointer_size_x64_bytes": 8,
+  "table_size_x64_bytes": 64,
+  "slots": [
+    {
+      "offset": "0x00",
+      "name": "pfnCalcPrivateDeviceSize",
+      "type": "PFND3D12DDI_CALCPRIVATEDEVICESIZE",
+      "purpose": "Request private allocation size for driver device object"
+    },
+    {
+      "offset": "0x08",
+      "name": "pfnCreateDevice",
+      "type": "PFND3D12DDI_CREATEDEVICE_0003",
+      "purpose": "Create driver device; 5/5 Intel installed variants already match signature"
+    },
+    {
+      "offset": "0x10",
+      "name": "pfnCloseAdapter",
+      "type": "PFND3D12DDI_CLOSEADAPTER",
+      "purpose": "Release driver adapter object"
+    },
+    {
+      "offset": "0x18",
+      "name": "pfnGetSupportedVersions",
+      "type": "PFND3D12DDI_GETSUPPORTEDVERSIONS",
+      "purpose": "Report supported DDI versions"
+    },
+    {
+      "offset": "0x20",
+      "name": "pfnGetCaps",
+      "type": "PFND3D12DDI_GETCAPS",
+      "purpose": "Query adapter capabilities"
+    },
+    {
+      "offset": "0x28",
+      "name": "pfnGetOptionalDDITables",
+      "type": "PFND3D12DDI_GETOPTIONALDDITTABLES",
+      "purpose": "Enumerate optional DDI tables"
+    },
+    {
+      "offset": "0x30",
+      "name": "pfnFillDDITable",
+      "type": "PFND3D12DDI_FILLDDITTABLE",
+      "purpose": "Populate negotiated DDI tables; V04 core callback trace corroborates"
+    },
+    {
+      "offset": "0x38",
+      "name": "pfnDestroyDevice",
+      "type": "PFND3D12DDI_DESTROYDEVICE",
+      "purpose": "Destroy driver device"
+    }
+  ],
+  "original_rva_map": "driver_intelligence/intel_hd520_openadapter_v02.json",
+  "prior_signatures": [
+    "driver_intelligence/intel_hd520_createdevice_v03.json",
+    "driver_intelligence/intel_hd520_pso_resource_v04.json"
+  ],
+  "qualification": "WDK_SDK_ABI_LAYOUT_CORROBORATED_TWO_RELEASES; Intel RVAs structurally mapped in old study. Only CreateDevice and FillDDITable have traced driver implementation signatures; other six callbacks have ABI labels, not individually proven runtime behaviors.",
+  "limitations": [
+    "Older and installed Intel drivers not dynamically hooked",
+    "Fortnite hung callback not identified from slot names",
+    "SDK 2015/2016 mirror, not an SDK source license grant",
+    "No proprietary driver bytes or disassembly distributed"
+  ],
+  "repository_source_notice": "Semantic extraction only. SDK header files remain at cited upstream source and are not vendored."
+}

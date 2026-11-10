@@ -23,6 +23,10 @@ jobs:
         run: python tools/validate_compatibility.py
       - name: Validate Intel driver interface map (static, no GPU required)
         run: python tools/driver_intelligence/validate_intel_adapter_map.py
+      - name: Validate Intel adapter ABI slot identities (offline)
+        run: python tools/driver_intelligence/validate_intel_adapter_abi_v05.py
+      - name: Validate sanitized Fortnite GPU fault evidence (offline)
+        run: python tools/driver_intelligence/validate_intel_fortnite_gpu_faults_v06.py
       - name: Validate Intel CreateDevice callback mapping
         run: python tools/driver_intelligence/validate_intel_createdevice.py
       - name: Validate Intel D3D12 PSO and resource callback map

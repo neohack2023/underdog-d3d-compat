@@ -1,0 +1,66 @@
+{
+  "schema": "underdog.intel_gen9.fortnite_gpu_faults.v6",
+  "hardware_id": "host02-intel-hd-520",
+  "gpu": "Intel HD Graphics 520",
+  "driver": "22.20.16.4836",
+  "event_date_local": "2026-11-08 to 2026-11-09",
+  "dred2_fortnite_event_count": 2,
+  "display_driver_recoveries_4101_count": 10,
+  "game_incidents": [
+    {
+      "time_local": "2026-11-08T21:21:56.990000-05:00",
+      "device_removed_reason": "DXGI_ERROR_DEVICE_HUNG",
+      "d3d12_failure_indicators": {
+        "create_placed_resource": true,
+        "pipeline_creation": false,
+        "resource_map": false
+      },
+      "failed_pso_count": 0,
+      "reported_memory_mb": {
+        "local_budget_mb": 5480.06,
+        "local_used_mb": 631.32
+      },
+      "unreal_dred_enabled": false,
+      "breadcrumbs_available": false
+    },
+    {
+      "time_local": "2026-11-08T21:36:29.880000-05:00",
+      "device_removed_reason": "DXGI_ERROR_DEVICE_HUNG",
+      "d3d12_failure_indicators": {
+        "create_placed_resource": true,
+        "pipeline_creation": true,
+        "resource_map": false
+      },
+      "failed_pso_count": 3,
+      "reported_memory_mb": {
+        "local_budget_mb": 5480.06,
+        "local_used_mb": 623.2
+      },
+      "unreal_dred_enabled": false,
+      "breadcrumbs_available": false
+    },
+    {
+      "time_local": "2026-11-09T07:40:41.404000-05:00",
+      "device_removed_reason": "DXGI_ERROR_DRIVER_INTERNAL_ERROR",
+      "d3d12_failure_indicators": {
+        "create_placed_resource": false,
+        "pipeline_creation": true,
+        "resource_map": true
+      },
+      "failed_pso_count": 3,
+      "reported_memory_mb": {
+        "local_budget_mb": 5480.06,
+        "local_used_mb": 209.35
+      },
+      "unreal_dred_enabled": false,
+      "breadcrumbs_available": false
+    }
+  ],
+  "evidence_method": "Read-only Windows WER ID1001/Display ID4101 plus 3 Unreal game logs and crash contexts on Host02",
+  "local_evidence_file": "05_RESEARCH/INTEL_FORTNITE_GPU_FAULT_CORRELATION_V06.json",
+  "root_cause": "UNKNOWN",
+  "specific_intel_callback": "UNRESOLVED",
+  "limitation": "Device-hung or driver-internal-error classification does not prove which Intel driver function triggered it.",
+  "raw_log_data_distributed": false,
+  "proprietary_driver_or_game_binaries_distributed": false
+}
