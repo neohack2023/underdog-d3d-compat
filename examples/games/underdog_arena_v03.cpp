@@ -8,6 +8,7 @@
 #include <dxgi1_6.h>
 #include <wrl/client.h>
 #include <cstdio>
+#include <cstdlib>
 #include <chrono>
 #include <vector>
 #include <algorithm>
@@ -235,9 +236,14 @@ void main(uint3 tid:SV_DispatchThreadID){
   shaderText.replace(shaderText.find(oldStore),oldStore.size(),
     "rgba[tid.xy]=float4(float3(rgb)/255.0,1.0);");
  }
+ const char* requestedVariant=std::getenv("UNDERDOG_SHADERLAB_VARIANT");
+ const bool shaderLabO3=requestedVariant && strcmp(requestedVariant,"O3")==0;
+ if(requestedVariant && !shaderLabO3 && strcmp(requestedVariant,"O1")!=0){puts("SHADERLAB_VARIANT_INVALID");return 27;}
+ const UINT shaderFlags=shaderLabO3?D3DCOMPILE_OPTIMIZATION_LEVEL3:D3DCOMPILE_OPTIMIZATION_LEVEL1;
+ printf("SHADERLAB_VARIANT=%s\n",shaderLabO3?"O3":"O1");
  ComPtr<ID3DBlob> cs,err;
  HRESULT hr=D3DCompile(shaderText.c_str(),shaderText.size(),"UnderdogArena",nullptr,nullptr,"main","cs_5_1",
- D3DCOMPILE_OPTIMIZATION_LEVEL1,0,&cs,&err);
+ shaderFlags,0,&cs,&err);
  if(FAILED(hr)){if(err)printf("HLSL_ERROR=%.*s\n",(int)err->GetBufferSize(),(char*)err->GetBufferPointer());return 21;}
  D3D12_ROOT_PARAMETER params[4]={};
  D3D12_DESCRIPTOR_RANGE typedRange={};
@@ -491,7 +497,10 @@ void main(uint3 tid:SV_DispatchThreadID){
  FILE* screenshot=nullptr;
  const std::string sceneName=std::string(meshPath).find("3200")!=std::string::npos?"grid3200":
    (std::string(meshPath).find("800")!=std::string::npos?"grid800":"cube12");
- const std::string witness="build/ARENA_BVH_GPU_WITNESS_V03_"+
+ const char* requestedWitnessDir=std::getenv("UNDERDOG_SHADERLAB_WITNESS_DIR");
+ const std::string witnessPrefix=(requestedWitnessDir && *requestedWitnessDir)?
+   std::string(requestedWitnessDir)+"/":"build/";
+ const std::string witness=witnessPrefix+"ARENA_BVH_GPU_WITNESS_V03_"+
    std::string(typedUav?"typed_":"structured_")+sceneName+".ppm";
  if(fopen_s(&screenshot,witness.c_str(),"wb")==0 && screenshot){
   fprintf(screenshot,"P6\n128 128\n255\n");
