@@ -25,7 +25,7 @@ Scene screenshots, source log, raw PresentMon CSV, exact hashes and receipts sta
 
 ## Proposed source-level audit, opt-in
 
-An isolated 4.7 KB GPL-compatible unified diff against the pinned upstream `renderer/mod.rs`, `texture.rs`, and `renderer/binding.rs` was prepared. `git apply --check`, `git apply`, and reverse-check pass on hash-pinned source snapshots. **Rust/Cargo absent on Host 02, so it has not compiled or run.**
+An isolated 4.7 KB GPL-compatible unified diff against the pinned upstream `renderer/mod.rs`, `texture.rs`, and `renderer/binding.rs` was prepared. `git apply --check`, `git apply`, and reverse-check pass on hash-pinned source snapshots. **Rust/Cargo are now detected on Host 02 (rustc/cargo 1.99.0; rustfmt installed), but no pinned game source build has completed, so it has not compiled or run.**
 
 When the separate consumer build exists, `UNDERDOG_WGPU_AUDIT=1` records device features/limits, texture-descriptor format/dimensions/usage, and figure/terrain/sprite atlas-binding events. A hard 256-observation cap per audit site limits log growth. The patch does not change resource descriptors or bindings. OFF mode is a build-matched comparison control, not proof of byte-identical binary to the official release.
 

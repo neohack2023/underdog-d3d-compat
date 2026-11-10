@@ -109,3 +109,5 @@ Intel HD 520 feature-query and compute-execution evidence: [HD520 DX12 Feature P
 - [Veloren isolated opt-in audit and PresentMon A/B/C protocol](docs/VELOREN_AUDIT_AB_PROTOCOL_V01.md)
 
 Native Veloren performance/terrain defect investigation: [triage and isolated rendering controls](docs/VELOREN_TERRAIN_VOID_TRIAGE_V01.md).
+
+Pinned Veloren terrain lifecycle source trace and opt-in diagnostic protocol: [Veloren terrain trace V01](docs/VELOREN_TERRAIN_LIFECYCLE_TRACE_V01.md).
