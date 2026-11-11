@@ -74,7 +74,7 @@ Our approaches include source-level engine changes, authorized reversible binary
 | Typed UAV resource/binding validation | **Verified diagnostics** | Hardware/WARP comparison and repeatable Arena image parity |
 | Intel HD 520 driver-interface investigation | **Research / partial mapping** | Read-only D3D12 adapter/device callback investigations; **not** a replacement driver |
 | Windows build and CPU-safe regression tests | **Implemented** | GitHub Actions compilation and hardware-free tests; GPU behavior requires an actual execution host |
-| D3D11 textured sprite vs. PS2 GS CPU reference | **Verified experimental branch, not merged** | Intel HD 520 and WARP: exact pixel parity on one synthetic sprite; [draft PR #2](../../pull/2) |
+| D3D11 textured sprite vs. PS2 GS CPU reference | **Verified experimental branch, not merged** | Intel HD 520 and WARP: exact pixel parity on one synthetic sprite; [draft PR #2](https://github.com/neohack2023/underdog-d3d-compat/pull/2) |
 | General graphics feature scheduler | **Planned** | Per-feature routing, synchronized fallback selection, workload measurement |
 | General software graphics driver/backend | **Research objective** | Interface contracts, software rasterization and translation feasibility |
 | Third-party game compatibility or modern-feature retrofits | **Per-game investigation** | No general compatibility guarantee or automatic injection mechanism |
@@ -126,7 +126,7 @@ We are studying the [NativeSX2](https://github.com/contatonewportgame-code/nativ
 
 A **draft, opt-in D3D11 research slice** has rendered a synthetic textured sprite on Intel HD 520 and WARP and matched the separately compiled PS2Recomp CPU GS reference pixel-for-pixel. The working experiment currently handles one controlled sprite, not arbitrary PS2 graphics commands or a playable game.
 
-See [draft PR #2](../../pull/2) for the source, independently generated test input, detailed limits, and validation plan. GPL-licensed upstream source used for local reference testing is kept outside Underdog's MIT-licensed repository.
+See [draft PR #2](https://github.com/neohack2023/underdog-d3d-compat/pull/2) for the source, independently generated test input, detailed limits, and validation plan. GPL-licensed upstream source used for local reference testing is kept outside Underdog's MIT-licensed repository.
 
 ## Building and testing
 
