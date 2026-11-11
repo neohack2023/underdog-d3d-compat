@@ -2,7 +2,7 @@
 
 **Make more graphics capabilities available across generations of games, APIs, drivers, and hardware.**
 
-Underdog is an experimental, open-source graphics engineering project investigating how to extend the useful life of older GPUs, make unsupported rendering features practical through compatible alternatives, and bring selected newer graphics techniques to older games.
+Underdog is an experimental graphics engineering project (MIT-licensed source; repository visibility is currently private) investigating how to extend the useful life of older GPUs, make unsupported rendering features practical through compatible alternatives, and bring selected newer graphics techniques to older games.
 
 We are exploring **software-backed graphics drivers and translation layers**, **feature scheduling across hardware and software execution paths**, **graphics API compatibility**, and **game-specific rendering upgrades**. The long-term goal is to let an application request a graphics capability and have a verified implementation satisfy it using the best available path, even when the original hardware or driver does not provide that feature natively.
 
