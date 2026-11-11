@@ -2,7 +2,7 @@
 
 Experimental hybrid Direct3D graphics compatibility library for legacy GPUs.
 
-**Status: self-owned application prototypes. Not a Windows driver, complete Direct3D wrapper, DXR driver, or Fortnite patch.**
+**Status: self-owned application prototypes. Not a Windows driver, complete Direct3D wrapper, DXR driver, yet..**
 
 The approach is hardware-first: retain real GPU acceleration wherever supported, substitute selected missing techniques with compatible compute shaders, and use explicit CPU reference/last-resort software rendering only where justified.
 
