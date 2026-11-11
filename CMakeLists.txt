@@ -40,3 +40,17 @@ add_executable(underdog_arena examples/games/underdog_arena_v02.cpp)
 add_executable(underdog_arena_v03 examples/games/underdog_arena_v03.cpp)
 target_link_libraries(underdog_arena_v03 PRIVATE UnderdogRuntime d3dcompiler user32)
 target_link_libraries(underdog_arena PRIVATE UnderdogRuntime d3dcompiler user32)
+
+# Hybrid ray tracing workload governor: independent CPU-only state-machine test.
+# Does not launch games or require a physical GPU on GitHub Actions.
+if(BUILD_TESTING)
+ add_executable(underdog_ray_budget_policy_tests tests/ray_budget_policy_tests.cpp)
+ target_link_libraries(underdog_ray_budget_policy_tests PRIVATE UnderdogRuntime)
+ add_test(NAME ray_budget_policy_no_gpu COMMAND underdog_ray_budget_policy_tests)
+endif()
+
+# Original opt-in ray compute GPU timestamp fixture. Builds in CI, never auto-runs.
+# Run explicitly on approved Host 02 hardware; WARP is a slow correctness reference.
+add_executable(underdog_ray_budget_bench examples/compute_ray/ray_budget_bench_v01.cpp)
+target_compile_features(underdog_ray_budget_bench PRIVATE cxx_std_17)
+target_link_libraries(underdog_ray_budget_bench PRIVATE d3d12 dxgi d3dcompiler)
