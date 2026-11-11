@@ -40,3 +40,9 @@ add_executable(underdog_arena examples/games/underdog_arena_v02.cpp)
 add_executable(underdog_arena_v03 examples/games/underdog_arena_v03.cpp)
 target_link_libraries(underdog_arena_v03 PRIVATE UnderdogRuntime d3dcompiler user32)
 target_link_libraries(underdog_arena PRIVATE UnderdogRuntime d3dcompiler user32)
+
+# PS2 GS 4 MiB VRAM transport feasibility test: compile in CI, execute only on
+# explicitly selected hardware/WARP adapters. No game code or ISO required.
+add_executable(underdog_gs_vram_roundtrip tests/gs_vram_gpu_roundtrip_v01.cpp)
+target_compile_features(underdog_gs_vram_roundtrip PRIVATE cxx_std_17)
+target_link_libraries(underdog_gs_vram_roundtrip PRIVATE d3d12 dxgi)
