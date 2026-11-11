@@ -48,3 +48,21 @@ A controlled **negative test** flipped one red channel in one source texel. The 
 **This does not establish:** NativeSX2 or God of War boot; a replacement GPU driver; HD 4000 execution; a plug-in GPU backend to PS2Recomp; shader speedups; equivalence for triangles, blends, depth, texture aliasing, indexed PSM, framebuffer feedback, or all GS presents.
 
 **Next engineering gate:** Parameterize the sprite from `GSPrimitiveBatch`, add a source-separated opt-in D3D11 `GSRasterBackend` implementation with CPU fallback for unhandled operations, and validate stateful texture uploads, flush/sync, VRAM snapshots, feedback and `PresentationFrame`. Only then consider real-game integration. D3D11 avoids requiring D3D12 but HD 4000 remains a separately necessary hardware validation.
+
+## Reproducing the opt-in hardware test without GPL source files
+
+The checked-in `tools/generate_gs_sprite_fixture_v02.py` independently generates the *same* synthetic texture and target framebuffer. Its output was checked byte-for-byte against the authentic `GSCpuBackend` oracle on Host 02 and reproduced the Intel/WARP GPU results in a separate staging folder. This independent generator is a **reproduction convenience**, not a replacement for the upstream CPU oracle as the final correctness authority.
+
+From the repository root on Windows:
+
+```powershell
+python tools/generate_gs_sprite_fixture_v02.py --output C:\temp\underdog-gs-fixture-v02
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DBUILD_TESTING=ON
+cmake --build build --config Release --target underdog_gs_sprite_d3d11
+Push-Location C:\temp\underdog-gs-fixture-v02
+& '<repo>\build\Release\underdog_gs_sprite_d3d11.exe'
+& '<repo>\build\Release\underdog_gs_sprite_d3d11.exe' warp
+Pop-Location
+```
+
+Replace `<repo>` with the actual repository path. The executable expects the two fixture files in the current working directory. `ctest --test-dir build -C Release --output-on-failure` separately validates the generator's pinned checksums without executing GPU code. Do not confuse passing this source/generator check with a hardware graphics verification.
