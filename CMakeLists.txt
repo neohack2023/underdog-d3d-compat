@@ -46,3 +46,10 @@ target_link_libraries(underdog_arena PRIVATE UnderdogRuntime d3dcompiler user32)
 add_executable(underdog_gs_vram_roundtrip tests/gs_vram_gpu_roundtrip_v01.cpp)
 target_compile_features(underdog_gs_vram_roundtrip PRIVATE cxx_std_17)
 target_link_libraries(underdog_gs_vram_roundtrip PRIVATE d3d12 dxgi)
+
+# A hardware-only, offscreen D3D11 sprite raster test against the separately
+# generated PS2Recomp GS CPU oracle. CI compiles but never auto-executes it.
+# Runtime expects gs_texture_8x8.rgba and gs_cpu_64x64.rgba in its workdir.
+add_executable(underdog_gs_sprite_d3d11 tests/gs_sprite_d3d11_v02.cpp)
+target_compile_features(underdog_gs_sprite_d3d11 PRIVATE cxx_std_17)
+target_link_libraries(underdog_gs_sprite_d3d11 PRIVATE d3d11 d3dcompiler dxgi)
