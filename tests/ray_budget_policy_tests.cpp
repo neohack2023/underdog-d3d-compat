@@ -61,6 +61,11 @@ int main(){
     RayBudgetController disabled(cfg);
     for(int i=0;i<10;++i)disabled.observe(ok);
     check(disabled.rate()==RayRate::Off,"explicit opt in required");
+    cfg.enabled=true;
+    cfg.reservedHeadroomMs=std::numeric_limits<double>::quiet_NaN();
+    RayBudgetController invalidConfig(cfg);
+    for(int i=0;i<6;++i)invalidConfig.observe(ok);
+    check(invalidConfig.rate()==RayRate::Off,"invalid headroom fails closed");
     std::cout<<"RAY_BUDGET_POLICY "<<(failures?"FAIL":"PASS")<<" failures="<<failures<<"\n";
     return failures?1:0;
 }
