@@ -53,3 +53,14 @@ target_link_libraries(underdog_gs_vram_roundtrip PRIVATE d3d12 dxgi)
 add_executable(underdog_gs_sprite_d3d11 tests/gs_sprite_d3d11_v02.cpp)
 target_compile_features(underdog_gs_sprite_d3d11 PRIVATE cxx_std_17)
 target_link_libraries(underdog_gs_sprite_d3d11 PRIVATE d3d11 d3dcompiler dxgi)
+
+# Pure-Python reproducibility gate: checks pixel checksum against the pinned
+# external CPU GS oracle witness without importing GPL source or needing a GPU.
+if(BUILD_TESTING)
+ find_package(Python3 COMPONENTS Interpreter QUIET)
+ if(Python3_Interpreter_FOUND)
+  add_test(NAME gs_sprite_fixture_no_gpu
+   COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/generate_gs_sprite_fixture_v02.py
+           --output ${CMAKE_CURRENT_BINARY_DIR}/gs_fixture_v02)
+ endif()
+endif()
