@@ -70,6 +70,7 @@ public:
            !finiteNonnegative(sample.rayGpuMs) ||
            !std::isfinite(config_.frameBudgetMs) ||
            !std::isfinite(config_.rayBudgetMs) ||
+           !finiteNonnegative(config_.reservedHeadroomMs) ||
            config_.frameBudgetMs<=0.0 || config_.rayBudgetMs<=0.0 ||
            config_.maxRaysPerFrame==0) {
             disable();
