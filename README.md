@@ -125,3 +125,7 @@ ShaderLab extends the original Arena renderer with opt-in FXC optimization-level
 On Host 02 the V01 compiler matrix passed 6/6 and 24/24 Intel HD 520 Arena GPU executions passed with 12/12 byte-identical shader image pairs. O3 was faster in 5/12 paired GPU P50 measurements; the default O1 path is retained. The 17-folder game scan is only static API reconnaissance and does not prove third-party game compatibility.
 
 See [ShaderLab V01 engineering report](docs/SHADERLAB_V01.md) and [Host 02 game admission matrix](docs/SHADERLAB_GAME_TRIAGE_V01.md). Core scripts: tools/shaderlab.py, tools/shaderlab_gpu_ab.py, tools/shaderlab_game_audit.py, tools/shaderlab_record.py. Tool binary paths and hashes are pinned in the Host 02 local workspace manifest, not redistributed in this repository.
+
+## ShaderLab V02: REA graphics and Intel driver-version evidence
+
+Offline REA 6.9.0 identified the D3D9+shader-constant-table boundary in MGRR and D3D8+DirectDraw in UT2004. Hash-verified Intel 15.45.34.5174 driver-package metadata was compared against archived 21.20.16.4534 files, including the 32-bit Direct3D UMD. The 64-bit Intel D3D12 module was analyzed by REA + Ghidra 12.1.4. Source-free receipts are retained in the existing local Underdog database; driver archives are not redistributed. [Report and limits](docs/SHADERLAB_GRAPHICS_DRIVER_RE_V02.md). No game compatibility or driver install is claimed.
